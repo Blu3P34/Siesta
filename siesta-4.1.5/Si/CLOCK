@@ -1,9 +1,9 @@
 Start of run             0.000
--------------- end of scf step             2.689
--------------- end of scf step             3.460
--------------- end of scf step             4.073
--------------- end of scf step             4.696
--------------- end of scf step             5.300
--------------- end of scf step             6.009
---- end of geometry step             7.458
-End of run             7.589
+-------------- end of scf step             6.248
+-------------- end of scf step             9.339
+-------------- end of scf step            11.982
+-------------- end of scf step            13.895
+-------------- end of scf step            15.716
+-------------- end of scf step            17.521
+--- end of geometry step            18.687
+End of run            18.853
