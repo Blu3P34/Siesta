@@ -1,13 +1,20 @@
+	# -- NAME & LABEL --
+
 SystemName silicon
 SystemLabel silicon
-NumberOfAtoms 2
+
+	# -- MATERIAL --
+
 NumberOfSpecies 1
+NumberOfAtoms 2
 
-%block ChemicalSpeciesLabel
+%block Chemical_Species_label
 1 14 Si
-%endblock ChemicalSpeciesLabel
+%endblock Chemical_Species_label
 
-LatticeConstant 5.43 Ang
+	# -- CELL-ATOMIC-POSITION --
+
+LatticeConstant 5.44		Ang
 
 %block LatticeVectors
 0.500 0.500 0.000
@@ -22,15 +29,77 @@ AtomicCoordinatesFormat ScaledCartesian
 0.250 0.250 0.250 1 Si
 %endblock AtomicCoordinatesAndAtomicSpecies
 
+	# -- MONKHORST-PACK --
+
 %block kgrid_Monkhorst_Pack
    6  0  0  0.5
    0  6  0  0.5
    0  0  6  0.5
 %endblock kgrid_Monkhorst_Pack
 
+
+	# -- SELF-CONSISTENT FIELD --
+
+MeshCutoff		   40.0 Ry
+PAO.BasisType		split
+PAO.BasisSize 		DZP
+PAO.EnergyShift 	0.03 eV
+XC.functional        	GGA
+XC.authors              PBE
+MaxSCFIterations     	50
+SolutionMethod         	diagon
+
+	# -- SELF-CONSISTENT FIELD-MIXING --
+
+DM.MixingWeight        	0.02
+DM.NumberPulay      	3
+DM.Tolerance 		1.d-5
+DM.Require.Energy.Convergence   T
+DM.Energy.Tolerance     1.e-5 eV
+SCF.MixAfterConvergence F
+DM.FormattedFiles       T
+DM.FormattedOutput      T
+	
+	# -- SPIN FIELD --
+
+SpinPolarized      	F       #If spin polarized the use T
+FixSpin             	F	#for magnetic systems
+NonCollinearSpin        F	#for magnetic systems
+DM.InitSpinAF           F 	#for magnetic systems
+
+
+	# -- SAVING WAVE/BAND/EIGEN/KPOINTS/ANIMATION INFORMATION --
+
+WriteKbands            	T
+WriteBands           	T
+WriteCoorXmol 		T
+WriteCoorStep       	T
+WriteKpoints        	T
+WriteCoorCerius		T
+WriteHS             	T
+WriteForces           	T
+WriteMullikenPop	1
+SaveHS			T
+XML.Write              	T
+
+	# -- BAND-STRUCTURE-ANALYSIS --
+
+BandLinesScale		pi/a
+
+%block BandLines
+1	0.0000	0.0000	0.5000	A
+20	0.5000	0.0000	0.5000	L
+25	0.5000	0.0000	0.0000	M
+30	0.0000	0.0000	0.0000	\Gamma
+35	0.0000	0.0000	0.5000	A
+40	0.6666	0.3333	0.5000	H
+45	0.6666	0.3333	0.0000	K
+50	0.0000	0.0000	0.0000	\Gamma
+%endblock BandLines
+
 BandLinesScale       pi/a
 %block BandLines
-1  1.0   1.0   1.0   L              # Begin at L
+1  1.0   1.0   1.0    L             # Begin at L
 36  0.0   0.0   0.0   \Gamma        # 36 points from L to Gamma
 36  0.0   2.0   0.0   X             # 36 points from Gamma to X
 36  1.5   1.5   0.0   K             # 36 points from X to K
