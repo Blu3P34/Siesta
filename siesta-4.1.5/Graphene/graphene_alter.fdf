@@ -1,0 +1,41 @@
+# -- NAME & LABEL --
+
+SystemName graphene
+SystemLabel graphene
+
+# -- MATERIAL --
+
+NumberOfSpecies 1
+NumberOfAtoms 2
+
+%block Chemical_Species_label
+1 6 C
+%endblock Chemical_Species_label
+
+# -- CELL-ATOMIC-POSITION --
+LatticeConstant 1.0 Ang
+
+%block LatticeVectors
+2.139 1.235 0.000
+2.139 -1.235 0.000
+0.000 0.000 40.000
+%endblock LatticeVectors
+
+AtomicCoordinatesFormat ScaledCartesian
+%block  AtomicCoordinatesAndAtomicSpecies
+    1.426  0.000 10.000   1  C
+    2.852  0.000 10.000   1  C
+    1.426  0.000 30.000   1  C
+    2.852  0.000 30.000   1  C
+%endblock  AtomicCoordinatesAndAtomicSpecies
+
+	# -- MONKHORST-PACK --
+
+%block kgrid_Monkhorst_Pack
+6   0   0   0.5
+0   6   0   0.5
+0   0   6   0.5
+%endblock kgrid_Monkhorst_Pack
+
+
+	
