@@ -18,30 +18,37 @@ LatticeConstant 5.43 Ang
 
 %block LatticeVectors
 0.500 0.500 0.000
-0.500 0.000 0.500
 0.000 0.500 0.500
+0.500 00500 0.500
 %endblock LatticeVectors
 
-AtomicCoordinatesFormat ScaledCartesian
+AtomicCoordinatesFormat Fractional
 
 %block AtomicCoordinatesAndAtomicSpecies
 0.000 0.000 0.000 1 Si
-0.250 0.250 0.250 1 Si
+0.500 0.500 0.500 1 Si
 %endblock AtomicCoordinatesAndAtomicSpecies
 
 %block kgrid_Monkhorst_Pack
-10 0 0 0.5
-0 10 0 0.5
-0 0 10 0.5
+6 0 0 0.5
+0 6 0 0.5
+0 0 6 0.5
 %endblock kgrid_Monkhorst_Pack
 
 	# -- BAND-STRUCTURE-ANALYSIS --
 
 BandLinesScale       pi/a
 %block BandLines
-1  1.0   1.0   1.0    L             # Begin at L
-40 0.0  0.0   0.0   \Gamma        # 36 points from L to Gamma
-40 0.0   2.0   0.0   X             # 36 points from Gamma to X
-40 1.5   1.5   0.0   U             # 36 points from X to U
-40 0.0   0.0   0.0   \Gamma        # 38 points from U to Gamma
+1  1.0   1.0   1.0	 \Gamma         
+40 2.0   0.0   0.0   X   
+40 2.0   1.0   0.0   W           
+40 1.5   1.5   0.0   K          
+40 0.0   0.0   0.0   \Gamma     
+40 1.0	 1.0   1.0	 L  
+40 2.0	 0.5   0.5 	 U
+40 2.0   1.0   0.0   W  
+40 1.0	 1.0   1.0	 L 
+40 1.5   1.5   0.0   K 
+1 2.0	 0.5   0.5 	 U   
+40 2.0   0.0   0.0   X  
 %endblock BandLines
